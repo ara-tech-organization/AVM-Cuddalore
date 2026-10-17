@@ -2,20 +2,20 @@ import { asset } from '../lib/asset'
 
 export const clinic = {
   name: 'AVM Smiles',
-  // contact details come from the Chidambaram "Contact Us" page of the client's content doc
-  phone: '+91 8071404434',
-  phoneHref: 'tel:+918071404434',
-  // TODO: confirm the WhatsApp number with the client
-  whatsappHref: 'https://wa.me/918071404434',
-  email: 'avmsmiles.chidambaram@gmail.com',
-  address: 'Door No 19A, First Floor, N Car St, Chidambaram, Tamil Nadu 608001.',
-  shortAddress: 'N Car St, Chidambaram',
+  // contact details come from the Cuddalore "Contact Us" page of the client's content doc
+  phone: '+91 8071404433',
+  phoneHref: 'tel:+918071404433',
+  // TODO: the doc lists no WhatsApp number for Cuddalore; using the clinic phone, confirm with the client
+  whatsappHref: 'https://wa.me/918071404433',
+  email: 'avmsmiles.cuddalore@gmail.com',
+  address: 'No 7, Third Floor, SP Towers, Soorappanaickan Chavadi Veli, Railway Flyover Road, nearby First Cry Store, Thirupapuliyur, Cuddalore, Tamil Nadu 607002',
+  shortAddress: 'Railway Flyover Road, Cuddalore',
   hours: 'Monday - Saturday: 9:00 AM - 7:00 PM', // Contact Us page says 7 PM; the doc's footer outline says 8 PM
-  mapsHref: 'https://maps.app.goo.gl/RiWFc2Kx2v8UaMdM9',
+  mapsHref: 'https://maps.app.goo.gl/yq5rwbJ6iUkqeLoB9',
   mapEmbed:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.0674630166973!2d79.69025097452487!3d11.402646347332022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a54c32bb6d332e9%3A0x23790b8124594db0!2sAVMSmiles%20Dental%20Wellness%20-%20Chidambaram%20%2C%20Cuddalore!5e0!3m2!1sen!2sin!4v1792144939569!5m2!1sen!2sin',
-  // from the Contact Us page of the content doc; it gives no YouTube URL, so that icon is hidden until one is added
-  social: { facebook: 'https://www.facebook.com/smiles.chidambaram', instagram: 'https://www.instagram.com/avmsmiles.chidambaram/', youtube: '' },
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250157.42937585103!2d79.56135828953126!3d11.572646896862018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5499aff46ff303%3A0x43430f6f8aaa24a9!2sAVMSmiles%20Dental%20Wellness!5e0!3m2!1sen!2sin!4v1792145025082!5m2!1sen!2sin',
+  // from the Cuddalore Contact Us page of the content doc; it gives no YouTube URL, so that icon is hidden until one is added
+  social: { facebook: 'https://www.facebook.com/smiles.cuddalore', instagram: 'https://www.instagram.com/avmsmiles.cuddalore/', youtube: '' },
 }
 
 export const nav = [
@@ -65,13 +65,13 @@ export const steps = [
 ]
 
 export const testimonials = [
-  'My treatment at AVM Smiles Chidambaram was handled with real care. The dentist was patient, explained every step, and made sure I stayed comfortable throughout.',
+  'My treatment at AVM Smiles Cuddalore was handled with real care. The dentist was patient, explained every step, and made sure I stayed comfortable throughout.',
   "I visited for a dental procedure and was genuinely impressed by the team's professionalism. Their modern equipment paired with attentive service made the experience easy.",
-  "The staff at AVM Smiles Chidambaram were friendly and clear about each stage of my treatment. The clinic was clean and comfortable, and I'd recommend it without hesitation.",
+  "The staff at AVM Smiles Cuddalore were friendly and clear about each stage of my treatment. The clinic was clean and comfortable, and I'd recommend it without hesitation.",
 ]
 
 export const faqs = [
-  ['What is the best dental clinic in Chidambaram?', 'AVM Smiles is a well-known dental clinic in Chidambaram, recognized for its skilled dentists, modern equipment, and personalized attention, offering complete dental care for individuals and families nearby.'],
+  ['What is the best dental clinic in Cuddalore?', 'AVM Smiles is a well-known dental clinic in Cuddalore, recognized for its skilled dentists, modern equipment, and personalized attention, offering complete dental care for individuals and families nearby.'],
   ['Do you provide dental implants?', 'Yes, we offer dental implants for single teeth, multiple teeth, and full mouth restoration, helping restore natural appearance and function.'],
   ['Do you offer invisible aligners?', 'Yes, we provide custom invisible aligners as a comfortable and discreet way to straighten teeth, often a good alternative to traditional braces.'],
   ['How regularly should I visit the dentist?', 'A dental checkup every six months is advised to maintain good oral health and catch issues before they progress.'],

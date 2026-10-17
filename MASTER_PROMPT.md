@@ -139,7 +139,7 @@ Type scale: H1 clamp(2rem, 4.5vw, 3.5rem) weight 700; H2 clamp(1.625rem, 3vw, 2.
 3. **WhatsApp number** and social URLs.
 4. **Claims**: "best dental clinic", "international clinical safety standards" and "honest pricing" are claims; keep them only if the client can support them. No invented statistics, ratings, doctor names or credentials.
 5. **Photos**: real clinic and team photos, and consented before/after images.
-6. **Chidambaram**: the doc also has Chidambaram pages (partly cut off); out of scope for this build, but keep the content structure city-agnostic so it can be reused.
+6. **Cuddalore**: the doc also has Cuddalore pages (partly cut off); out of scope for this build, but keep the content structure city-agnostic so it can be reused.
 
 ## 11. Quality bar and acceptance checklist
 
