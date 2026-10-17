@@ -83,28 +83,38 @@ function Cards({ groups, numbered }) {
 function Table({ rows }) {
   const [head, ...rest] = rows
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      {rest.map((r, i) => (
-        <Reveal key={r[0]} delay={(i % 2) * 80}>
-          <div className="group h-full rounded-[20px] border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_48px_-16px_rgba(40,36,89,.3)]">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-600 group-hover:text-white">
-                <Icon name="Sparkles" size={20} />
-              </span>
-              <h3 className="font-semibold leading-snug text-brand-900">{r[0]}</h3>
-            </div>
-            <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-              {r.slice(1).map((c, k) => (
-                <div key={k} className={`rounded-2xl px-4 py-3 ${k === 0 ? 'bg-brand-50' : 'bg-surface'}`}>
-                  <dt className="text-xs font-semibold text-brand-600">{head[k + 1]}</dt>
-                  <dd className="mt-1 text-ink">{c}</dd>
-                </div>
+    <Reveal>
+      <div className="overflow-hidden rounded-[24px] border border-line bg-white shadow-[0_18px_48px_-24px_rgba(40,36,89,.35)]">
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+            <thead>
+              <tr className="bg-gradient-to-r from-brand-700 to-brand-600 text-white">
+                {head.map((h, k) => (
+                  <th key={h} scope="col" className={`px-5 py-4 text-xs font-semibold uppercase tracking-wider sm:px-7 ${k === 0 ? 'w-[34%]' : ''}`}>{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rest.map((r) => (
+                <tr key={r[0]} className="border-t border-line transition-colors duration-200 odd:bg-white even:bg-surface hover:bg-brand-50">
+                  <th scope="row" className="px-5 py-4 align-middle font-semibold text-brand-900 sm:px-7">
+                    <span className="flex items-center gap-3">
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600"><Icon name="Sparkles" size={16} /></span>
+                      {r[0]}
+                    </span>
+                  </th>
+                  {r.slice(1).map((c, k) => (
+                    <td key={k} className="px-5 py-4 align-middle text-ink sm:px-7">
+                      <span className={`inline-block rounded-full px-3 py-1 text-[13px] font-medium ${k === 0 ? 'bg-brand-50 text-brand-700' : 'bg-white text-muted ring-1 ring-line'}`}>{c}</span>
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </dl>
-          </div>
-        </Reveal>
-      ))}
-    </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </Reveal>
   )
 }
 
