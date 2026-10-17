@@ -5,16 +5,22 @@ import Landing from './pages/Landing'
 import ServicePage from './pages/ServicePage'
 import { ContactPage, GalleryPage, ThankYouPage } from './pages/StaticPages'
 
-// Scroll to the #hash target after a route change, otherwise to the top.
+// Landing-page sections that have their own URL (/about, /services). "/" is the top of the page.
+const SECTION_PATHS = { '/about': 'about', '/services': 'services' }
+
+// Scroll to the section for the current path or #hash after a route change, otherwise to the top.
+// Navigations triggered by the scroll spy (state.spy) must not scroll again.
 function ScrollManager() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash, state } = useLocation()
   useEffect(() => {
-    if (hash) {
-      const t = setTimeout(() => document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' }), 60)
+    if (state?.spy) return
+    const target = hash || (SECTION_PATHS[pathname] ? `#${SECTION_PATHS[pathname]}` : '')
+    if (target) {
+      const t = setTimeout(() => document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' }), 60)
       return () => clearTimeout(t)
     }
     window.scrollTo(0, 0)
-  }, [pathname, hash])
+  }, [pathname, hash, state])
   return null
 }
 
@@ -31,6 +37,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Landing {...shared} />} />
+          <Route path="/about" element={<Landing {...shared} />} />
+          <Route path="/services" element={<Landing {...shared} />} />
           <Route path="/contact-us" element={<ContactPage {...shared} />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/thankyou" element={<ThankYouPage />} />

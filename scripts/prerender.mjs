@@ -33,3 +33,9 @@ for (const p of Object.values(pages)) {
   fs.writeFileSync(path.join(dir, 'index.html'), h)
 }
 
+
+// /about and /services are landing-page sections with their own URL; serve the app shell there too.
+for (const slug of ['about', 'services']) {
+  fs.mkdirSync(path.join(dist, slug), { recursive: true })
+  fs.writeFileSync(path.join(dist, slug, 'index.html'), template)
+}

@@ -228,7 +228,7 @@ export default function ServicePage({ treatment, setTreatment }) {
             <nav aria-label="Breadcrumb" className="rise flex flex-wrap items-center gap-1.5 text-xs text-muted">
               <A href="/" className="hover:text-brand-600">Home</A>
               <Icon name="ChevronRight" size={14} />
-              <A href="/#services" className="hover:text-brand-600">Services</A>
+              <A href="/services" className="hover:text-brand-600">Services</A>
               <Icon name="ChevronRight" size={14} />
               <span className="font-medium text-brand-700">{svc.title}</span>
             </nav>

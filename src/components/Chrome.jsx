@@ -1,4 +1,5 @@
 ﻿import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router'
 import { asset } from '../lib/asset'
 import { Icon, Btn, A } from './ui'
 import { clinic, nav, services } from '../content/cuddalore'
@@ -24,6 +25,11 @@ export function Header() {
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
   const last = useRef(0)
+  const { pathname } = useLocation()
+  // Services also stays active on its individual treatment pages.
+  const isActive = (n) =>
+    n.href === pathname || (n.href === '/services' && !['/', '/about', '/gallery', '/contact-us', '/thankyou'].includes(pathname))
+  const linkCls = (n) => (isActive(n) ? 'text-brand-600' : 'text-ink hover:text-brand-600')
 
   useEffect(() => {
     const onScroll = () => {
@@ -55,7 +61,7 @@ export function Header() {
           {nav.map((n) =>
             n.dropdown ? (
               <div key={n.label} className="relative group">
-                <A href={n.href} className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-ink hover:text-brand-600 transition-colors">
+                <A href={n.href} aria-current={isActive(n) ? 'page' : undefined} className={`relative flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded-full after:bg-brand-600 after:transition-transform after:origin-left ${isActive(n) ? 'after:scale-x-100' : 'after:scale-x-0'} ${linkCls(n)}`}>
                   {n.label} <Icon name="ChevronDown" size={16} className="transition-transform duration-200 group-hover:rotate-180" />
                 </A>
                 <div className="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-200 absolute left-0 top-full pt-2">
@@ -69,7 +75,7 @@ export function Header() {
                 </div>
               </div>
             ) : (
-              <A key={n.label} href={n.href} className="px-4 py-2 text-sm font-medium text-ink hover:text-brand-600 transition-colors">
+              <A key={n.label} href={n.href} aria-current={isActive(n) ? 'page' : undefined} className={`relative px-4 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded-full after:bg-brand-600 after:transition-transform after:origin-left ${isActive(n) ? 'after:scale-x-100' : 'after:scale-x-0'} ${linkCls(n)}`}>
                 {n.label}
               </A>
             ),
@@ -99,7 +105,7 @@ export function Header() {
           className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white p-6 overflow-y-auto transition-transform duration-300 ease-out ${open ? 'translate-x-0' : 'translate-x-full'}`}
         >
           {nav.map((n) => (
-            <A key={n.label} href={n.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium border-b border-line text-ink">
+            <A key={n.label} href={n.href} onClick={() => setOpen(false)} aria-current={isActive(n) ? 'page' : undefined} className={`block py-3 text-base font-medium border-b border-line ${isActive(n) ? 'text-brand-600' : 'text-ink'}`}>
               {n.label}
             </A>
           ))}
